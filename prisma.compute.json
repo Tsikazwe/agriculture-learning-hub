@@ -1,0 +1,11 @@
+{
+  "region": "us-east-1",
+  "app": {
+    "name": "agriculture-learning-hub",
+    "framework": "nextjs",
+    "httpPort": 3000,
+    "build": {
+      "command": "npm run build"
+    }
+  }
+}
