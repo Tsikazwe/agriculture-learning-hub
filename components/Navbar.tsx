@@ -35,6 +35,7 @@ export function Navbar() {
         Agriculture Learning Hub Zambia
       </Link>
 
+      {/* Desktop nav */}
       <div className="hidden md:flex items-center gap-6">
         {NAV_LINKS.map((link) => (
           <Link
@@ -69,6 +70,7 @@ export function Navbar() {
         </Show>
       </div>
 
+      {/* Mobile: avatar (if signed in) + hamburger */}
       <div className="flex items-center gap-3 md:hidden">
         <Show when="signed-in">
           <UserButton />
@@ -86,56 +88,60 @@ export function Navbar() {
               </button>
             }
           />
-          <SheetContent side="right" className="w-64">
-            <SheetTitle className="text-green-800 mb-6">Menu</SheetTitle>
-            <div className="flex flex-col gap-4">
+          <SheetContent side="right" className="w-72 px-6 py-6">
+            <SheetTitle className="text-green-800 mb-6 text-lg">Menu</SheetTitle>
+            <div className="flex flex-col gap-5">
               <LanguageSwitcher />
 
-              {NAV_LINKS.map((link) => (
-                <SheetClose
-                  key={link.href}
-                  nativeButton={false}
-                  render={
-                    <Link
-                      href={link.href}
-                      className="text-base hover:text-green-700"
-                    >
-                      {link.label}
-                    </Link>
-                  }
-                />
-              ))}
+              <div className="flex flex-col gap-4">
+                {NAV_LINKS.map((link) => (
+                  <SheetClose
+                    key={link.href}
+                    nativeButton={false}
+                    render={
+                      <Link
+                        href={link.href}
+                        className="text-base hover:text-green-700"
+                      >
+                        {link.label}
+                      </Link>
+                    }
+                  />
+                ))}
 
-              <Show when="signed-in">
-                <SheetClose
-                  nativeButton={false}
-                  render={
-                    <Link href="/dashboard" className="text-base hover:text-green-700">
-                      {t.nav.dashboard}
-                    </Link>
-                  }
-                />
-              </Show>
+                <Show when="signed-in">
+                  <SheetClose
+                    nativeButton={false}
+                    render={
+                      <Link href="/dashboard" className="text-base hover:text-green-700">
+                        {t.nav.dashboard}
+                      </Link>
+                    }
+                  />
+                </Show>
+              </div>
 
               <Show when="signed-out">
-                <SheetClose
-                  render={
-                    <SignInButton mode="modal">
-                      <button className="text-base text-left px-4 py-2 rounded-md border border-green-700 text-green-700 hover:bg-green-50">
-                        {t.nav.signIn}
-                      </button>
-                    </SignInButton>
-                  }
-                />
-                <SheetClose
-                  render={
-                    <SignUpButton mode="modal">
-                      <button className="text-base text-left px-4 py-2 rounded-md bg-green-700 text-white hover:bg-green-800">
-                        {t.nav.signUp}
-                      </button>
-                    </SignUpButton>
-                  }
-                />
+                <div className="flex flex-col gap-3 pt-4 border-t border-gray-200">
+                  <SheetClose
+                    render={
+                      <SignInButton mode="modal">
+                        <button className="text-base text-center px-4 py-3 rounded-md border border-green-700 text-green-700 hover:bg-green-50">
+                          {t.nav.signIn}
+                        </button>
+                      </SignInButton>
+                    }
+                  />
+                  <SheetClose
+                    render={
+                      <SignUpButton mode="modal">
+                        <button className="text-base text-center px-4 py-3 rounded-md bg-green-700 text-white hover:bg-green-800">
+                          {t.nav.signUp}
+                        </button>
+                      </SignUpButton>
+                    }
+                  />
+                </div>
               </Show>
             </div>
           </SheetContent>
