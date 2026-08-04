@@ -11,7 +11,8 @@
     "seed:more": "tsx db/seed-more.ts",
     "seed:more2": "tsx db/seed-more2.ts",
     "seed:quizfull": "tsx db/seed-quiz-full.ts",
-    "test:unit": "vitest run --exclude e2e/**"
+    "test:unit": "vitest run"
+    
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
