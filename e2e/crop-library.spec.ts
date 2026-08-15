@@ -24,7 +24,7 @@ test.describe("Crop Library", () => {
   });
 
   test("clicking a crop navigates to its detail page", async ({ page }) => {
-    await page.goto("/crops", { waitUntil: "networkidle" });
+    await page.goto("/crops", { waitUntil: "domcontentloaded" });
 
     const maizeLink = page.locator('a[href="/crops/maize"]');
     await maizeLink.waitFor({ state: "visible" });
