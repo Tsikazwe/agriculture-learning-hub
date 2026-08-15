@@ -8,7 +8,7 @@ export const metadata = {
     "See which crops to plant month by month, based on Zambia's farming seasons.",
 };
 
-export const dynamic = "force-dynamic";
+//export const dynamic = "force-dynamic";
 export default async function CalendarPage() {
   const allCrops = await db.select().from(crops);
 

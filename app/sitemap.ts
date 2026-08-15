@@ -2,11 +2,8 @@ import { MetadataRoute } from "next";
 import { db } from "@/db/drizzle";
 import { crops, pests } from "@/db/schema";
 
-// Skip static pre-rendering at build time to prevent database connection timeouts
-export const dynamic = "force-dynamic";
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://your-app-name.vercel.app";
+  const baseUrl = "https://agriculture-learning-hub.vercel.app";
 
   let cropRoutes: MetadataRoute.Sitemap = [];
   let pestRoutes: MetadataRoute.Sitemap = [];

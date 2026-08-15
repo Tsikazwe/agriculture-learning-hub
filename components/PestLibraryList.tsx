@@ -46,6 +46,7 @@ export function PestLibraryList({ pests }: { pests: Pest[] }) {
                         src={pest.image}
                         alt={pest.name}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                         className="object-cover"
                       />
                     </div>

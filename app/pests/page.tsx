@@ -8,7 +8,7 @@ export const metadata = {
     "Identify common pests and diseases affecting Zambian crops, with organic and chemical control methods.",
 };
 
-export const dynamic = "force-dynamic";
+//export const dynamic = "force-dynamic";
 export default async function PestsPage() {
   const allPests = await db.select().from(pests);
 

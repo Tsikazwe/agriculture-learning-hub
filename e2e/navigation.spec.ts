@@ -11,18 +11,20 @@ test.describe("Navigation", () => {
   });
 
   test("navbar links work correctly", async ({ page }) => {
-    await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.goto("/", { waitUntil: "networkidle" });
 
     const nav = page.getByRole("navigation");
 
-    // Target links specifically by href to avoid ambiguity
     await nav.locator('a[href="/crops"]').click();
+    await page.waitForURL(/\/crops/);
     await expect(page).toHaveURL(/\/crops/);
 
     await nav.locator('a[href="/pests"]').click();
+    await page.waitForURL(/\/pests/);
     await expect(page).toHaveURL(/\/pests/);
 
     await nav.locator('a[href="/calendar"]').click();
+    await page.waitForURL(/\/calendar/);
     await expect(page).toHaveURL(/\/calendar/);
   });
 

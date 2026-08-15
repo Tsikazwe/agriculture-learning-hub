@@ -7,7 +7,7 @@ export const metadata = {
   description:
     "Browse crops suited to Zambia's agro-ecological zones, with guidance on planting, fertilizer, and harvest timing.",
 };
-export const dynamic = "force-dynamic";
+//export const dynamic = "force-dynamic";
 
 export default async function CropsPage() {
   const allCrops = await db.select().from(crops);

@@ -7,7 +7,6 @@ import * as schema from './schema';
 
 const connectionString = process.env.DATABASE_URL!;
 
-// Attach pool to globalThis to reuse across Next.js Hot Module Reloads (HMR)
 const globalForDb = globalThis as unknown as {
   pool: Pool | undefined;
 };
@@ -16,10 +15,15 @@ const pool =
   globalForDb.pool ??
   new Pool({
     connectionString,
-    max: 10, // Max concurrent connections per worker
-    connectionTimeoutMillis: 10000, // Timeout after 10s instead of hanging indefinitely
+    max: 10,
+    connectionTimeoutMillis: 30000,
     idleTimeoutMillis: 30000,
   });
+
+// Critical: without this, any dropped connection crashes the entire process
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle database client', err);
+});
 
 if (process.env.NODE_ENV !== 'production') {
   globalForDb.pool = pool;

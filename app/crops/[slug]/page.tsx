@@ -1,3 +1,4 @@
+
 import { db } from "@/db/drizzle";
 import {
   crops,
@@ -107,6 +108,7 @@ export default async function CropDetailPage({
             src={crop.image}
             alt={`${crop.name} crop`}
             fill
+            sizes="(max-width: 768px) 100vw, 768px"
             className="object-cover"
             priority
           />

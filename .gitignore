@@ -15,8 +15,6 @@
 
 # next.js
 /.next/
-/.next_old/
-/.next_backup/
 /out/
 
 # production
@@ -25,7 +23,6 @@
 # misc
 .DS_Store
 *.pem
-Thumbs.db
 
 # debug
 npm-debug.log*
@@ -33,9 +30,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (sensitive local credentials)
+# env files (can opt-in for committing if needed)
 .env*
-!.env.example
 
 # vercel
 .vercel
@@ -45,16 +41,9 @@ yarn-error.log*
 next-env.d.ts
 
 # Playwright
+node_modules/
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-
-# IDE / Editors
-.vscode/
-.idea/
-
-# Local SQLite / Temporary DB files
-*.db
-*.sqlite

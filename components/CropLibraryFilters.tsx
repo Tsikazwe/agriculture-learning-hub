@@ -104,6 +104,7 @@ export function CropLibraryFilters({ crops }: { crops: Crop[] }) {
                         src={crop.image}
                         alt={`${crop.name} crop`}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                         className="object-cover"
                       />
                     </div>
